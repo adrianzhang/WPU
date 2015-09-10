@@ -40,16 +40,17 @@ RUN pip install --no-cache-dir virtualenv
 
 # install Node.js 4.0.0
 
+# public key "Rod Vagg <rod@vagg.org>"
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys DD8F2338BAE7501E3DD5AC78C273792F7D83545D
 
 ENV NODE_VERSION v4.0.0
 
 RUN set -x \
 	&& mkdir -p /usr/src/nodejs \
-	&& curl -SL "http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION.tar.gz" -o nodejs.tar.gz \
-	&& curl -SL "https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt.asc" -o nodejs.tar.gz.asc \
-	&& gpg --verify nodejs.tar.gz.asc \
-	&& tar -xz /usr/src/nodejs -strip-conponents=1 -f nodejs.tar.gz \
+	&& curl -SL "https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.tar.xz" -o nodejs.tar.xz \
+	&& curl -SL "https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt.asc" -o nodejs.tar.xz.asc \
+	&& gpg --verify nodejs.tar.xz.asc \
+	&& tar -xz /usr/src/nodejs -strip-components=1 -f nodejs.tar.xz \
 	&& rm nodejs.tar.gz \
 	&& cd /usr/src/nodejs \
 	&& ./configure \
