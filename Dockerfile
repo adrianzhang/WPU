@@ -58,8 +58,8 @@ RUN set -x \
 	&& make \
 	&& make install \
 	&& make test \
-	&& make doc \
-	&& rm -rf /usr/src/nodejs
+	&& make doc 
+	#&& rm -rf /usr/src/nodejs
 
 ENTRYPOINT ["node"]
 CMD [-e, "console.log('Hello from node.js ' + process.version)"]
