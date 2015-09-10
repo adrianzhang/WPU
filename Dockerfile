@@ -58,7 +58,7 @@ RUN set -x \
 	&& make \
 	&& make install \
 	&& make test \
-	&& make doc 
+	&& make doc
 	#&& rm -rf /usr/src/nodejs
 
 ENTRYPOINT ["node"]
