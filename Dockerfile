@@ -48,7 +48,7 @@ ENV NODE_VERSION v4.0.0
 
 RUN set -x \
 	&& mkdir -p /usr/src/nodejs \
-	&& curl -SL "https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.tar.xz" -o nodejs.tar.xz \
+	&& curl -SL "https://nodejs.org/dist/latest/node-$NODE_VERSION.tar.xz" -o nodejs.tar.xz \
 	&& curl -SL "https://nodejs.org/dist/$NODE_VERSION/SHASUMS256.txt.asc" -o nodejs.tar.xz.asc \
 	&& gpg --verify nodejs.tar.xz.asc \
 	&& tar -xJC /usr/src/nodejs --strip-components=1 -f nodejs.tar.xz \
