@@ -23,7 +23,7 @@ RUN set -x \
 	&& ./configure \
 	&& make \
 	&& make install \
-	&& make test \
+#	&& make test \
 	&& make doc \
 	&& rm -rf /usr/src/nodejs
 
