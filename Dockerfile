@@ -26,6 +26,6 @@ RUN set -x \
 #	&& make test \
 	&& make doc \
 	&& rm -rf /usr/src/nodejs
-
+VOLUME [/var/www]
 ENTRYPOINT ["node"]
 CMD [-e, "console.log('Hello from node.js ' + process.version)"]
